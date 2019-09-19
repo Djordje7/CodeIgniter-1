@@ -28,7 +28,6 @@
                 alert("heureka");
 			}
         });
-
 	})
 </script>
 
