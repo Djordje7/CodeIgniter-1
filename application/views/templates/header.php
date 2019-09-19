@@ -32,4 +32,9 @@
 			</ul>
 		</div>
 	</div>
+
+	<button class="btn btn-toggle btn-danger" >Hide</button>
+
+
 </div>
+
