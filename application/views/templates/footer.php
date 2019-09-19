@@ -16,8 +16,27 @@
                 $(this).removeClass('btn-danger').addClass('btn-success');
 			}
 		});
+
+        $('.table tr').click(function() {
+            if($(this).hasClass('bg')){
+                $(this).removeClass('bg');
+			} else {
+                $(this).addClass('bg');
+            }
+			console.log($(this).find('a').html());
+            if($(this).find('a').html()=='Wissen'){
+                alert("heureka");
+			}
+        });
+
 	})
 </script>
+
+<style>
+	.bg {
+		background-color: #8ba8af;
+	}
+</style>
 
 </body>
 </html>
