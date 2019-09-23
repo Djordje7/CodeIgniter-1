@@ -5,37 +5,9 @@
 
 <script>
     $(document).ready(function(){
-		$('.btn-toggle').click(function(){
-			$('.nav').toggle();
 
-			if($('.nav').is(":visible")) {
-                $(this).html('Hide');
-                $(this).removeClass('btn-success').addClass('btn-danger');
-            } else {
-                $(this).html('Show');
-                $(this).removeClass('btn-danger').addClass('btn-success');
-			}
-		});
-
-        $('.table tr').click(function() {
-            if($(this).hasClass('bg')){
-                $(this).removeClass('bg');
-			} else {
-                $(this).addClass('bg');
-            }
-			console.log($(this).find('a').html());
-            if($(this).find('a').html()=='Wissen'){
-                alert("heureka");
-			}
-        });
 	})
 </script>
-
-<style>
-	.bg {
-		background-color: #8ba8af;
-	}
-</style>
 
 </body>
 </html>

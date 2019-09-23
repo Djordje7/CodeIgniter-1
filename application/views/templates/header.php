@@ -12,7 +12,8 @@
 
 	<style>
 		.active {
-			color: rebeccapurple;
+			color:black;
+			font-weight: bold;
 		}
 	</style>
 </head>
@@ -24,19 +25,11 @@
 		<div class="col">
 			<ul class="nav">
 				<li class="nav-item">
-					<a class="nav-link <?=$page=='genres'?'active':''?>" href="/pages">Genres</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link <?=$page=='herkunft'?'active':''?>" href="/pages/herkunft">Herkunft</a>
-				</li>
-				<li class="nav-item">
 					<a class="nav-link <?=$page=='not_found'?'active':''?>" href="/pages/not_found">Not Found</a>
 				</li>
 			</ul>
 		</div>
 	</div>
-
-	<button class="btn btn-toggle btn-danger" >Hide</button>
 
 
 </div>
