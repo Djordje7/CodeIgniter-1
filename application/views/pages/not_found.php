@@ -10,7 +10,7 @@
 				<?php foreach ($not_found as $row) { ?>
 				<tr>
 					<td><?=$row->Anzahl?></td>
-					<td><a href="https://www.google.com/<?=$row->ean?>"><?=$row->ean?></a></td>
+					<td><a target="_blank" href="https://www.google.com/search?q=+<?=$row->ean?>"><?=$row->ean?></a></td>
 				</tr>
 				<?php } ?>
 			</table>  
@@ -18,5 +18,3 @@
         </div>
     </div>
 </div>
-
-

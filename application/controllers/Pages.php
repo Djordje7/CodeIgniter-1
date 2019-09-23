@@ -43,5 +43,6 @@
 			$data['not_found'] = $this->spieldb->get_not_found();
 			$this->render($data);
 		}
+		
 
 	}

@@ -28,5 +28,12 @@ class Spieldb_model extends CI_Model {
 									ORDER BY Anzahl DESC;');
 		return $query->result();
 	}
+	public function update_existing_ean() {
+		$this->db->query('UPDATE db_not_found 
+									LEFT JOIN db_spiel USING(ean) 
+									SET existiert_seit=erstellt_am 
+									WHERE NOT ISNULL(db_spiel.id);');
+		
+	}
 
 }
