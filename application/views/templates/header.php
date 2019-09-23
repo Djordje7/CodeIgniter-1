@@ -29,6 +29,9 @@
 				<li class="nav-item">
 					<a class="nav-link <?=$page=='herkunft'?'active':''?>" href="/pages/herkunft">Herkunft</a>
 				</li>
+				<li class="nav-item">
+					<a class="nav-link <?=$page=='not_found'?'active':''?>" href="/pages/not_found">Not Found</a>
+				</li>
 			</ul>
 		</div>
 	</div>

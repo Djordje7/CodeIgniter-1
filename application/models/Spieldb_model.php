@@ -21,5 +21,12 @@ class Spieldb_model extends CI_Model {
 		$query = $this->db->get('db_herkunft');
 		return $query->result();
 	}
+	public function get_not_found() {
+		$query = $this->db->query('SELECT ean, COUNT(ean) AS Anzahl
+									FROM db_not_found
+									GROUP BY ean
+									ORDER BY Anzahl DESC;');
+		return $query->result();
+	}
 
 }
