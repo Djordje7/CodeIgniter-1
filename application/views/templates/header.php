@@ -27,6 +27,9 @@
 				<li class="nav-item">
 					<a class="nav-link <?=$page=='not_found'?'active':''?>" href="/pages/not_found">Not Found</a>
 				</li>
+				<li class="nav-item">
+					<a class="nav-link <?=$page=='zugriff'?'active':''?>" href="/pages/zugriff">Zugriff</a>
+				</li>
 			</ul>
 		</div>
 	</div>
