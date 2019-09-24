@@ -5,8 +5,8 @@
 				<tr>
 					<th>Ludothek</th>
 					<th>Gefundene EAN</th>
-					<th>Unauffindbar und vermisst</th>
-					<th>Unauffinbar nun existierend</th>
+					<th>Nicht gefunden</th>
+					<th>Nicht gefunden, nun existierend</th>
                 </tr>	
                 <?php
                     $summe_zugriff_found=0;

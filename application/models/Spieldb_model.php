@@ -16,8 +16,8 @@ class Spieldb_model extends CI_Model {
 									LEFT JOIN db_spiel USING(ean) 
 									SET existiert_seit=erstellt_am 
 									WHERE NOT ISNULL(db_spiel.id);');
-	
 	}
+
 	public function get_zugriff(){
 		$query = $this->db->query('SELECT
 									ludo AS ludothek, 
@@ -33,4 +33,25 @@ class Spieldb_model extends CI_Model {
 								ORDER BY zugriff_found DESC;');
 		return $query->result();
 	}
+
+	/**
+	 * @param $spiel array with data to add
+	 */
+	public function add_spiel($data) {
+		$this->db->insert('db_spiel', $data);
+	}
+
+	/**
+	 * @return list with all verlage for select2 ajax-data
+	 */
+	public function get_verlage($search_term="") {
+		if($search_term=="") {
+			$query = $this->db->query("SELECT verlag as id, verlag as text FROM db_spiel GROUP BY verlag");
+		} else {
+			$query = $this->db->query("SELECT verlag as id, verlag as text FROM db_spiel GROUP BY verlag");
+		}
+		$verlage = $query->result();
+		return $verlage;
+	}
+
 }
