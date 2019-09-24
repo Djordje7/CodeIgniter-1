@@ -4,9 +4,9 @@
 			<table class="table">
 				<tr>
 					<th>Ludothek</th>
-					<th>Zugriff found</th>
-					<th>nicht gefunden</th>
-					<th>wieder vorhanden</th>
+					<th>Gefundene EAN</th>
+					<th>Unauffindbar und vermisst</th>
+					<th>Unauffinbar nun existierend</th>
                 </tr>	
                 <?php
                     $summe_zugriff_found=0;
@@ -28,7 +28,7 @@
                     </tr>
                 <?php } ?> 
                 <tr>
-                    <th>Die Gesamt summe:</th>
+                    <th>Total:</th>
                     <th><?=$summe_zugriff_found?></th>        
                     <th><?=$summe_existing_now?></th>
                     <th><?=$summe_still_missing?></th>      
