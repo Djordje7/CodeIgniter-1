@@ -44,12 +44,12 @@ class Spieldb_model extends CI_Model {
 	/**
 	 * @return list with all verlage for select2 ajax-data
 	 */
-	public function get_verlage($search_term="") {
-		if($search_term=="") {
-			$query = $this->db->query("SELECT verlag as id, verlag as text FROM db_spiel GROUP BY verlag");
-		} else {
-			$query = $this->db->query("SELECT verlag as id, verlag as text FROM db_spiel GROUP BY verlag");
-		}
+	public function get_verlage($search_term) {
+		$sql = "SELECT verlag AS id, verlag AS `text` FROM db_spiel WHERE verlag LIKE '?%' GROUP BY verlag";
+		$query = $this->db->query($sql, [$search_term]);
+
+		echo $this->db->last_query();
+
 		$verlage = $query->result();
 		return $verlage;
 	}
