@@ -25,12 +25,6 @@
 				</tr>
                 <?php } ?>  
             </table> 
-            <div class="alert alert-primary" role="alert">
-            <th></th>
-                <th><?=$summe?> Suchanfragen mit <?=count($zugriff_found)?> verschiedenen EAN</th>
-                <th><?=$summe2?> Suchanfragen mit <?=count($not_found_and_still_missing)?> verschiedenen EAN</th>
-                <th><?=$summe3?> Suchanfragen mit <?=count($not_found_but_existing_now)?> verschiedenen EAN</th>	
-			</div>
         </div>
     </div>
 </div>
