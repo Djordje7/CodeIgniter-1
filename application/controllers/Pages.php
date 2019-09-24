@@ -55,6 +55,9 @@
 				case 'verlag';
 					$data = $this->spieldb->get_verlage($term);
 					break;
+				case 'azspieler';
+					$data = $this->spieldb->get_azspieler($term);
+					break;
 			}
 
 			$json =  json_encode(["results" => $data]);

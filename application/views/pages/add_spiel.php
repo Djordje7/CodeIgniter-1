@@ -1,21 +1,27 @@
 <script>
     $(document).ready(function(){
-		$('.js-data-example-ajax').select2({
-            placeholder: "Verlag",
-            minimumInputLength: 3,
-            ajax: {
-                url: '<?=base_url()?>pages/get_json/verlag',
-                dataType: 'json'
-            },
-            tags: true,
-            createTag: function (params) {
-                return {
-                    id: params.term,
-                    text: params.term,
-                    newOption: true
+        $('.js-data-example-ajax').each(function(){
+            var placeholder = $(this).attr("placeholder");
+            var field = $(this).attr("name");
+        	$(this).select2({
+                placeholder: placeholder,
+                minimumInputLength: 3,
+                ajax: {
+                    url: '<?=base_url()?>pages/get_json/' + field,
+                    dataType: 'json'
+                },
+                tags: true,
+                createTag: function (params) {
+                    return {
+                        id: params.term,
+                        text: params.term,
+                        newOption: true
+                    }
                 }
-            }
-        });
+            });
+		});
+
+
     });
 </script>
 <div class="container mt-5">
@@ -76,7 +82,7 @@
 					<input type="number" class="form-control" id="alter_bis" name="alter_bis" placeholder="Alter bis">
 				</div>
 				<div class="form-group">
-					<input type="text" maxlength="30" class="form-control" id="azspieler" name="azspieler" placeholder="Az Spieler">
+					<select class="form-control js-data-example-ajax" placeholder="Anzahl Spieler" id="azspieler" name="azspieler" maxlength="50" required></select>
 				</div>
 				<div class="form-group">
 					<input type="text" maxlength="30" class="form-control" id="spieldauer" name="spieldauer" placeholder="Spieldauer">
