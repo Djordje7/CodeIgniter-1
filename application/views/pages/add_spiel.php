@@ -83,7 +83,7 @@
 					<select class="form-control select2-autocomplete" placeholder="Anzahl Spieler" id="azspieler" name="azspieler" maxlength="50" required></select>
 				</div>
 				<div class="form-group">
-					<select type="text" class="custom-select my-1 mr-sm-2" maxlength="30"  id="spieldauer" name="spieldauer" placeholder="Spieldauer"></select>
+					<select class="custom-select my-1 mr-sm-2" maxlength="30"  id="spieldauer" name="spieldauer" placeholder="Spieldauer"></select>
 				</div>
 				<div class="form-group">
 					<input type="text" maxlength="255" class="form-control" id="beschreibung_titel" name="beschreibung_titel" placeholder="Beschreibung Titel">

@@ -27,6 +27,7 @@ class Select2_model extends CI_Model {
 		$result = $query->result();
 		return $result;
 	}
+	
 	//$query = $this->db->query('SELECT spieldauer as `time` FROM db_spiel GROUP BY spieldauer ORDER BY spieldauer ASC;');
 	public function get_spieldauer($search_term) {
 		$this->db->select("spieldauer AS `time`");

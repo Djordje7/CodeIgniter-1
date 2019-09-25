@@ -34,6 +34,7 @@
 				$data['spiel']['illustration'] = $this->input->post('illustration');
 				$data['spiel']['alter'] = $this->input->post('alter');
 				$data['spiel']['alter_bis'] = $this->input->post('alter_bis');
+				$data['spiel']['spieldauer'] = $this->input->post('spieldauer');
 				$this->spieldb->add_spiel($data['spiel']);
 
 				$this->session->set_flashdata('msg', 'Spiel '.$this->input->post('ean').' wurde hinzugefügt.');
