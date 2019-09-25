@@ -46,7 +46,7 @@
 				$data['page'] = "add_spiel";
 				$data['title'] = "Spiel erfassen";
 				$data['ean'] = $ean;
-			//	$data['level'] = $level;
+				$data['level'] = $this->spieldb->get_level();
 				$this->render($data);
 			}
 		}
