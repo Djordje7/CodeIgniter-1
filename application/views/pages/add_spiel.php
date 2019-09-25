@@ -66,38 +66,41 @@
 					<div class="form-group col-md-6">
 						<input type="text" maxlength="50" class="form-control" id="titel" name="titel" placeholder="Titel" required>
 					</div>
-					</div>
+				</div>
 						
 					<div class="form-group">
 						<select class="form-control select2-autocomplete" placeholder="Verlag" id="verlag" name="verlag" maxlength="50" required></select>
 					</div>
-				
+				<div class="form-row">
 					<div class="form-group col-md-6">
 						<input type="text" maxlength="50" class="form-control" id="autor" name="autor" placeholder="autor">
 					</div>
 				
 					<div class="form-group col-md-6">
 						<input type="text" maxlength="50" class="form-control" id="illustration" name="illustration" placeholder="Illustration">
-					
 					</div>
-					
-					<div class="form-group">
+				</div>
+				
+				<div class="form-row">
+					<div class="form-group col-md-6">
 						<input type="number" class="form-control" id="alter" name="alter" placeholder="Alter">
 					</div>
 
-					<div class="form-group">
+					<div class="form-group col-md-6">
 						<input type="number" class="form-control" id="alter_bis" name="alter_bis" placeholder="Alter bis">
 					</div>
-					
-					<div class="form-group">
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-6">
 						<select class="form-control select2-autocomplete" placeholder="Anzahl Spieler" id="azspieler" name="azspieler" maxlength="50"></select>
 					</div>
 
-					<div class="form-group">
+					<div class="form-group col-md-3">
 						<select class="form-control select2-autocomplete" maxlength="30"  id="spieldauer" name="spieldauer" placeholder="Spieldauer"></select>
 					</div>
+				
 
-					<div class="form-group">
+					<div class="form-group col-md-3">
 						<select class="form-control" id="level" name="level">
 							<option>Level</option>
 							<?php 
@@ -107,13 +110,13 @@
 							?>	
 						</select>
 					</div>		
-
+				</div>
 					<div class="form-group">
 						<select class="form-control" id="zielgruppe" name="zielgruppe">
 							<option>Zielgruppe</option>
 							<?php 
-								foreach($zielgruppe as $rows){?>
-									<option value="<?=$rows->id?>"><?=$rows->zielgruppe?></option>;
+								foreach($zielgruppe as $row){?>
+									<option value="<?=$row->id?>"><?=$row->zielgruppe?></option>;
 								<?php }
 							?>	
 						</select>
