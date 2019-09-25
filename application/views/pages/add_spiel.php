@@ -58,27 +58,34 @@
 			?>
 
 			<?= form_open();?>
+					<div class="form-row">
 				<div class="form-group">
 					<input type="text" maxlength="100" class="form-control" id="ean" name="ean" value="<?=$ean?>" required>
 				</div>
+
 				<div class="form-group">
 					<input type="text" maxlength="50" class="form-control" id="titel" name="titel" placeholder="Titel" required>
 				</div>
+
 				<div class="form-group">
 					<select class="form-control select2-autocomplete" placeholder="Verlag" id="verlag" name="verlag" maxlength="50" required></select>
 				</div>
-				<div class="form-group">
+
+				<div class="form-group col-md-6">
 					<input type="text" maxlength="50" class="form-control" id="autor" name="autor" placeholder="autor">
 				</div>
-				<div class="form-group">
+				
+				<div class="form-group col-md-6 ">
 					<input type="text" maxlength="50" class="form-control" id="illustration" name="illustration" placeholder="Illustration">
 				</div>
-				<div class="form-group">
+				
+				<div class="form-group col-md-6">
 					<input type="number" class="form-control" id="alter" name="alter" placeholder="Alter">
 				</div>
-				<div class="form-group">
+				<div class="form-group col-md-6">
 					<input type="number" class="form-control" id="alter_bis" name="alter_bis" placeholder="Alter bis">
 				</div>
+					</div>
 				<div class="form-group">
 					<select class="form-control select2-autocomplete" placeholder="Anzahl Spieler" id="azspieler" name="azspieler" maxlength="50"></select>
 				</div>
@@ -86,11 +93,11 @@
 					<select class="form-control select2-autocomplete" maxlength="30"  id="spieldauer" name="spieldauer" placeholder="Spieldauer"></select>
 				</div>
 				<div class="form-group">
-					<?php print_r($level) ?>
-					<select class="form-control" id="level" name="level">
+					<select class="form-control" id="level" name="level ">
+					<option>level Auswählen</option>
 					<?php 
 					foreach($level as $row){
-						echo "<option value=".$row->level.">$row->level_text</option>";
+						echo "<option value=\"{$row->level}\">{$row->level_text}</option>" ;
 						}
 					?>
 					

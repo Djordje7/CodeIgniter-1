@@ -28,6 +28,7 @@
 		public function add_spiel($ean) {
 			if($this->input->post('ean')){
 				//form was sent
+			//	$level = ($level == ) null:?
 				$data['spiel']['ean'] = $this->input->post('ean');
 				$data['spiel']['titel'] = $this->input->post('titel');
 				$data['spiel']['verlag'] = $this->input->post('verlag');
@@ -35,6 +36,7 @@
 				$data['spiel']['alter'] = $this->input->post('alter');
 				$data['spiel']['alter_bis'] = $this->input->post('alter_bis');
 				$data['spiel']['spieldauer'] = $this->input->post('spieldauer');
+
 				$data['spiel']['level'] = $this->input->post('level');
 				$this->spieldb->add_spiel($data['spiel']);
 
