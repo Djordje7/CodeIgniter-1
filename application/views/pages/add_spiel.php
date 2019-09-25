@@ -125,11 +125,16 @@
 					<div class="form-group">
 						<input type="text" maxlength="255" class="form-control" id="beschreibung_titel" name="beschreibung_titel" placeholder="Beschreibung Titel">
 					</div>
+					
+					<div class="form-group">
+						<select class="form-control select2-autocomplete" placeholder="herkunft" id="herkunft" name="herkunft" maxlength="50" required></select>
+					</div>
 
 					<div class="form-group">
 						<textarea class="form-control" cols="30" rows="10" id="beschreibung" name="beschreibung" placeholder="Beschreibung"></textarea>
 					</div>
 
+					
 					<div class="form-group">
 						<textarea class="form-control" cols="30" rows="10" id="inhalt" name="inhalt" placeholder="Inhalt"></textarea>
 					</div>

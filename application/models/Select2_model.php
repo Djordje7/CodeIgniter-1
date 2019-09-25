@@ -40,5 +40,13 @@ class Select2_model extends CI_Model {
 		$result = $query->result();
 		return $result;
 	}
+	public function get_herkunft($search_term){
+		$this->db->select("herkunft AS id, herkunft AS `text`");
+		$this->db->like("herkunft", $search_term, 'after');
+		$this->db->group_by('name');
+		$query = $this->db->get('db_herkunft');
 
+		$result = $query->result();
+		return $result;
+	}
 }

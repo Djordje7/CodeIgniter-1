@@ -36,9 +36,8 @@
 				$data['spiel']['alter'] = $this->input->post('alter');
 				$data['spiel']['alter_bis'] = $this->input->post('alter_bis');
 				$data['spiel']['spieldauer'] = $this->input->post('spieldauer');
-				$data['spiel']['herkunft_id'] = $this->input->post('herkunft_id');
+				$data['spiel']['herkunft'] = $this->input->post('herkunft');
 				$data['spiel']['zielgruppe'] = $this->input->post('zielgruppe');
-
 				$data['spiel']['level'] = $this->input->post('level');
 				$this->spieldb->add_spiel($data['spiel']);
 
@@ -68,6 +67,9 @@
 					break;
 				case 'spieldauer';
 					$data = $this->select2->get_spieldauer($term);
+					break;
+				case 'herkunft';
+					$data = $this->select2->get_herkunft($term);
 					break;
 			}
 

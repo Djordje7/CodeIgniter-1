@@ -37,17 +37,11 @@ class Spieldb_model extends CI_Model {
 
 	public function get_level(){
 		$query = $this->db->get('db_level');
-		
 		return $query->result();
 	}
 	public function get_zielgruppe(){
 		$query = $this->db->get('db_zielgruppe');
 		$this->db->order_by('sort');
-		return $query->result();
-	}
-	public function get_herkunft(){
-		$query = $this->db->get('db_herkunft');
-		$this->db->order_by('name');
 		return $query->result();
 	}
 
