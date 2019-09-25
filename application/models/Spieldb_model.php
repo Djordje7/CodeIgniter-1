@@ -41,30 +41,7 @@ class Spieldb_model extends CI_Model {
 		$this->db->insert('db_spiel', $data);
 	}
 
-	/**
-	 * @return list with all grouped items for select2 ajax-data
-	 */
-	public function get_verlage($search_term) {
-		$this->db->select("verlag AS id, verlag AS `text`");
-		$this->db->like("verlag", $search_term, 'after');
-		$this->db->group_by('verlag');
-		$query = $this->db->get('db_spiel');
 
-		$return = $query->result();
-		return $return;
-	}
-
-	/**
-	 * @return list with all grouped items for select2 ajax-data
-	 */
-	public function get_azspieler($search_term) {
-		$this->db->select("azspieler AS id, azspieler AS `text`");
-		$this->db->like("azspieler", $search_term, 'after');
-		$this->db->group_by('azspieler');
-		$query = $this->db->get('db_spiel');
-
-		$return = $query->result();
-		return $return;
-	}
+	
 
 }
