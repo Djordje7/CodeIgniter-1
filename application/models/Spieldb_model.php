@@ -33,7 +33,11 @@ class Spieldb_model extends CI_Model {
 								ORDER BY zugriff_found DESC;');
 		return $query->result();
 	}
-
+	//SELECT level_text FROM db_level GROUP BY level
+	public function get_level(){
+		$query = $this->db->query('SELECT level_text FROM db_level GROUP BY level;');
+	return $query->result();
+	}
 	/**
 	 * @param $spiel array with data to add
 	 */
@@ -42,6 +46,5 @@ class Spieldb_model extends CI_Model {
 	}
 
 
-	
 
 }

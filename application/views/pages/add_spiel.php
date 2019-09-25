@@ -86,6 +86,15 @@
 					<select class="form-control select2-autocomplete" maxlength="30"  id="spieldauer" name="spieldauer" placeholder="Spieldauer"></select>
 				</div>
 				<div class="form-group">
+					<select type="text" class="form-control" id="level" name="level" placeholder="level"></select>
+					
+					<?php 
+						//foreach($level as $lvl){
+						//echo "<option value=".$level."</option>;"
+						//};
+						?>
+				</div>
+				<div class="form-group">
 					<input type="text" maxlength="255" class="form-control" id="beschreibung_titel" name="beschreibung_titel" placeholder="Beschreibung Titel">
 				</div>
 				<div class="form-group">
@@ -97,7 +106,6 @@
 				<div class="form-group">
 					<input type="number" class="form-control" id="jahr" name="jahr" placeholder="Jahr">
 				</div>
-
 				<button type="submit" class="btn btn-primary">Speichern</button>
 			<?= form_close()?>
 		</div>

@@ -35,6 +35,7 @@
 				$data['spiel']['alter'] = $this->input->post('alter');
 				$data['spiel']['alter_bis'] = $this->input->post('alter_bis');
 				$data['spiel']['spieldauer'] = $this->input->post('spieldauer');
+				$data['spiel']['level'] = $this->input->post('level');
 				$this->spieldb->add_spiel($data['spiel']);
 
 				$this->session->set_flashdata('msg', 'Spiel '.$this->input->post('ean').' wurde hinzugefügt.');
@@ -45,7 +46,7 @@
 				$data['page'] = "add_spiel";
 				$data['title'] = "Spiel erfassen";
 				$data['ean'] = $ean;
-
+			//	$data['level'] = $level;
 				$this->render($data);
 			}
 		}
