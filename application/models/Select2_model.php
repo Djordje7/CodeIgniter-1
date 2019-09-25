@@ -27,13 +27,14 @@ class Select2_model extends CI_Model {
 		$result = $query->result();
 		return $result;
 	}
-	
-	//$query = $this->db->query('SELECT spieldauer as `time` FROM db_spiel GROUP BY spieldauer ORDER BY spieldauer ASC;');
+
+	/**
+	 * @return list with all grouped items for select2 ajax-data
+	 */
 	public function get_spieldauer($search_term) {
-		$this->db->select("spieldauer AS `time`");
-		$this->db->like("spielerdauer", $search_term, 'after');
+		$this->db->select("spieldauer AS id, spieldauer AS `text`");
+		$this->db->like("spieldauer", $search_term, 'after');
 		$this->db->group_by('spieldauer');
-		$this->db->order_by('spieldauer ASC');
 		$query = $this->db->get('db_spiel');
 
 		$result = $query->result();

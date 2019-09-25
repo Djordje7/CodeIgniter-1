@@ -80,10 +80,10 @@
 					<input type="number" class="form-control" id="alter_bis" name="alter_bis" placeholder="Alter bis">
 				</div>
 				<div class="form-group">
-					<select class="form-control select2-autocomplete" placeholder="Anzahl Spieler" id="azspieler" name="azspieler" maxlength="50" required></select>
+					<select class="form-control select2-autocomplete" placeholder="Anzahl Spieler" id="azspieler" name="azspieler" maxlength="50"></select>
 				</div>
 				<div class="form-group">
-					<select class="custom-select my-1 mr-sm-2" maxlength="30"  id="spieldauer" name="spieldauer" placeholder="Spieldauer"></select>
+					<select class="form-control select2-autocomplete" maxlength="30"  id="spieldauer" name="spieldauer" placeholder="Spieldauer"></select>
 				</div>
 				<div class="form-group">
 					<input type="text" maxlength="255" class="form-control" id="beschreibung_titel" name="beschreibung_titel" placeholder="Beschreibung Titel">
