@@ -96,6 +96,9 @@
 				<div class="form-group">
 					<textarea class="form-control" cols="30" rows="10" id="inhalt" name="inhalt" placeholder="Inhalt"></textarea>
 				</div>
+				<div class="form-group">
+					<input type="number" class="form-control" id="jahr" name="jahr" placeholder="Jahr">
+				</div>
 
 				<button type="submit" class="btn btn-primary">Speichern</button>
 			<?= form_close()?>
