@@ -20,8 +20,6 @@
                 }
             });
 		});
-
-
     });
 </script>
 <div class="container mt-5">
