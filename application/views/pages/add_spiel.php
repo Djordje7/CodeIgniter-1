@@ -86,13 +86,14 @@
 					<select class="form-control select2-autocomplete" maxlength="30"  id="spieldauer" name="spieldauer" placeholder="Spieldauer"></select>
 				</div>
 				<div class="form-group">
-					<select type="text" class="form-control" id="level" name="level" placeholder="level"></select>
-					
+				<?php print_r($level)?>
+					<select class="form-control" id="level" name="level">
 					<?php 
-						//foreach($level as $lvl){
-						//echo "<option value=".$level."</option>;"
-						//};
-						?>
+						foreach($level as $row){
+						echo "<option value="' .$row->level. '">'.$row->level_text.'</option>";
+						}
+					?>
+					</select>
 				</div>
 				<div class="form-group">
 					<input type="text" maxlength="255" class="form-control" id="beschreibung_titel" name="beschreibung_titel" placeholder="Beschreibung Titel">
