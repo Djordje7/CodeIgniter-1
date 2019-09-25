@@ -3,3 +3,7 @@
 	font-weight: bold;
 }
 
+.select2-container .select2-selection--single {
+	/*same height as bootstrap input*/
+	height: calc(1.5em + .75rem + 2px);
+}
