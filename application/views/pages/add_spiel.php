@@ -88,8 +88,8 @@
 				<div class="form-group">
 					<select class="form-control" id="level" name="level">
 					<?php 
-						foreach($level as $row){
-						echo "<option value=".$row->level.">$row->level_text</option>";
+					foreach($level as $row){
+						echo "<option value=".$row->"level."">$row->level_text</option>";
 						}
 					?>
 					</select>
