@@ -39,6 +39,10 @@ class Spieldb_model extends CI_Model {
 		$query = $this->db->get('db_level');
 		return $query->result();
 	}
+	public function get_zielgruppe(){
+		$query = $this->db->get('db_zielgruppe');
+		return $query->result();
+	}
 
 	/**
 	 * @param $spiel array with data to add

@@ -36,6 +36,8 @@
 				$data['spiel']['alter'] = $this->input->post('alter');
 				$data['spiel']['alter_bis'] = $this->input->post('alter_bis');
 				$data['spiel']['spieldauer'] = $this->input->post('spieldauer');
+				$data['spiel']['herkunft_id'] = $this->input->post('herkunft_id');
+				$data['spiel']['zielgruppe'] = $this->input->post('zielgruppe');
 
 				$data['spiel']['level'] = $this->input->post('level');
 				$this->spieldb->add_spiel($data['spiel']);
@@ -49,6 +51,8 @@
 				$data['title'] = "Spiel erfassen";
 				$data['ean'] = $ean;
 				$data['level'] = $this->spieldb->get_level();
+				$data['zielgruppe'] = $this->spieldb->get_zielgruppe();
+
 				$this->render($data);
 			}
 		}
