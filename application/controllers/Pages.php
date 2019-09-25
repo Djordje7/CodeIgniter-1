@@ -53,15 +53,14 @@
 			$term = $this->input->get('term');
 			switch ($type){
 				case 'verlag';
-					$data = $this->spieldb->get_verlage($term);
+					$data = $this->select2->get_verlage($term);
 					break;
 				case 'azspieler';
-					$data = $this->spieldb->get_azspieler($term);
+					$data = $this->select2->get_azspieler($term);
 					break;
 			}
 
-			$json =  json_encode(["results" => $data]);
-
+			$json = json_encode(["results" => $data]);
 			echo $json;
 		}
 

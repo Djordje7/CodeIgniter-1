@@ -1,6 +1,6 @@
 <script>
     $(document).ready(function(){
-        $('.js-data-example-ajax').each(function(){
+        $('.select2-autocomplete').each(function(){
             var placeholder = $(this).attr("placeholder");
             var field = $(this).attr("name");
         	$(this).select2({
@@ -67,7 +67,7 @@
 					<input type="text" maxlength="50" class="form-control" id="titel" name="titel" placeholder="Titel" required>
 				</div>
 				<div class="form-group">
-					<select class="form-control js-data-example-ajax" placeholder="Verlag" id="verlag" name="verlag" maxlength="50" required></select>
+					<select class="form-control select2-autocomplete" placeholder="Verlag" id="verlag" name="verlag" maxlength="50" required></select>
 				</div>
 				<div class="form-group">
 					<input type="text" maxlength="50" class="form-control" id="autor" name="autor" placeholder="autor">
@@ -82,7 +82,7 @@
 					<input type="number" class="form-control" id="alter_bis" name="alter_bis" placeholder="Alter bis">
 				</div>
 				<div class="form-group">
-					<select class="form-control js-data-example-ajax" placeholder="Anzahl Spieler" id="azspieler" name="azspieler" maxlength="50" required></select>
+					<select class="form-control select2-autocomplete" placeholder="Anzahl Spieler" id="azspieler" name="azspieler" maxlength="50" required></select>
 				</div>
 				<div class="form-group">
 					<input type="text" maxlength="30" class="form-control" id="spieldauer" name="spieldauer" placeholder="Spieldauer">
