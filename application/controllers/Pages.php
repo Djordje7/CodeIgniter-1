@@ -36,16 +36,23 @@
 				$insert['titel'] = $this->input->post('titel');
 				$insert['verlag'] = $this->input->post('verlag');
 				$insert['illustration'] = $this->input->post('illustration');
+				$insert['autor'] = $this->input->post('autor');
 				$insert['alter'] = $this->input->post('alter');
+				$insert['azspieler'] = $this->input->post('azspieler');
+				$insert['jahr'] = $this->input->post('jahr');
+				$insert['inhalt'] = $this->input->post('inhalt');
+				$insert['beschreibung_titel'] = $this->input->post('beschreibung_titel');
 				$insert['alter_bis'] = $this->input->post('alter_bis');
 				$insert['spieldauer'] = $this->input->post('spieldauer');
 				$insert['externe_id'] = $this->input->post('externe_id');
-				$insert['sprache_regeln'] = $this->input->post('sprache_regeln');
+				$insert['beschreibung'] = $this->input->post('beschreibung');
 				$insert['level'] = ($this->input->post('level')=="")?NULL:$this->input->post('level');
+				$insert['sprache_regeln'] = $this->input->post('sprache_regeln');
+				$insert['sprache'] = $this->input->post('sprache');
 				$insert['text_im_spiel'] = ($this->input->post('text_im_spiel')=="")?NULL:$this->input->post('text_im_spiel');
 				$insert['artikelnr_verlag'] = ($this->input->post('artikelnr_verlag')=="")?NULL:$this->input->post('artikelnr_verlag');
 				$insert['zielgruppe'] = ($this->input->post('zielgruppe')=="")?NULL:$this->input->post('zielgruppe');
-				$insert['herkunft_id'] = ($this->input->post('herkunft')=="")?NULL:$this->input->post('herkunft');
+				$insert['herkunft_id'] = ($this->input->post('herkunft_id')=="")?NULL:$this->input->post('herkunft_id');
 				
 				$this->db->insert('db_spiel', $insert);
 
@@ -60,7 +67,7 @@
 				$data['level'] = $this->spieldb->get_level();
 				$data['zielgruppe'] = $this->spieldb->get_zielgruppe();
 				$data['herkunft'] = $this->spieldb->get_herkunft();
-
+				
 				$this->render($data);
 			}
 		}

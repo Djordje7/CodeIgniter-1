@@ -149,11 +149,15 @@
 					</div>
 
 					<div class="form-group">
-						<input type="text" maxlength="255" class="form-control" id="sprache_regeln" name="sprache_regeln" placeholder="sprache_regeln">
+						<input type="text" maxlength="20" class="form-control" id="sprache_regeln" name="sprache_regeln" placeholder="sprache_regeln">
+					</div>
+
+					<div class="form-group">
+						<input type="text" maxlength="2" class="form-control" id="sprache" name="sprache" placeholder="sprache">
 					</div>
 					
 					<div class="form-group">
-					<input type="number" maxlength="50" class="form-control" id="externe_id" name="externe_id" placeholder="externe_id">
+					<input type="number" maxlength="11" class="form-control" id="externe_id" name="externe_id" placeholder="externe_id">
 					</div>
 
 					<div class="form-group">
@@ -165,7 +169,7 @@
 					</div>
 
 					<div class="form-group">
-						<input type="number" class="form-control" id="jahr" name="jahr" placeholder="Jahr">
+						<input type="number" maxlength="11" class="form-control" id="jahr" name="jahr" placeholder="Jahr">
 					</div>
 					
 					<div>
