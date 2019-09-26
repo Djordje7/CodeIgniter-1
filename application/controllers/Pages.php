@@ -28,7 +28,11 @@
 		public function add_spiel($ean) {
 			if($this->input->post('ean')){
 				//form was sent
-			//	$level = ($level == ) null:?
+				if (!empty($_POST['value'] == "")) {
+					$_POST['value'] = NULL;
+					
+				}
+
 				$data['spiel']['ean'] = $this->input->post('ean');
 				$data['spiel']['titel'] = $this->input->post('titel');
 				$data['spiel']['verlag'] = $this->input->post('verlag');
@@ -67,9 +71,6 @@
 					break;
 				case 'spieldauer';
 					$data = $this->select2->get_spieldauer($term);
-					break;
-				case 'herkunft';
-					$data = $this->select2->get_herkunft($term);
 					break;
 			}
 

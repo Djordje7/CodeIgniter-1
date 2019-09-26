@@ -102,7 +102,7 @@
 
 					<div class="form-group col-md-3">
 						<select class="form-control" id="level" name="level">
-							<option>Level</option>
+							<option value="">Level</option>
 							<?php 
 								foreach($level as $row){?>
 									<option value="<?=$row->level?>"><?=$row->level_text?></option>;
@@ -125,7 +125,7 @@
 					<div class="form-group">
 						<input type="text" maxlength="255" class="form-control" id="beschreibung_titel" name="beschreibung_titel" placeholder="Beschreibung Titel">
 					</div>
-					
+
 					<div class="form-group">
 						<select class="form-control select2-autocomplete" placeholder="herkunft" id="herkunft" name="herkunft" maxlength="50" required></select>
 					</div>
@@ -141,6 +141,10 @@
 
 					<div class="form-group">
 						<input type="number" class="form-control" id="jahr" name="jahr" placeholder="Jahr">
+					</div>
+					
+					<div>
+						<input type="checkbox">
 					</div>
 
 					<button type="submit" class="btn btn-primary">Speichern</button>
