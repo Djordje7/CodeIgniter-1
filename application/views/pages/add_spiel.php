@@ -142,26 +142,16 @@
 
 					<div class="form-group">
 						<select class="form-control" id="text_im_spiel" name="text_im_spiel">
-							<option value="">nicht gesetzt</option>
+							<option value="">Text im Spiel</option>
 							<option value="0">Nein</option>
 							<option value="1">Ja</option>
 						</select>
 					</div>
 
 					<div class="form-group">
-						<select class="form-control" id="sprache_regeln" name="sprache_regeln">
-							<option value="">Sprache</option>
-							<option value="de">Deutsch</option>
-							<option value="fr">Französisch</option>
-							<option value="nl">Niederländisch</option>
-							<option value="es">Spanisch</option>
-							<option value="en">Englisch</option>
-							<option value="po">Polnisch</option>
-						</select>
+						<input type="text" maxlength="255" class="form-control" id="sprache_regeln" name="sprache_regeln" placeholder="sprache_regeln">
 					</div>
-
 					
-
 					<div class="form-group">
 					<input type="number" maxlength="50" class="form-control" id="externe_id" name="externe_id" placeholder="externe_id">
 					</div>

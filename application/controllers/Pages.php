@@ -39,16 +39,16 @@
 				$insert['alter'] = $this->input->post('alter');
 				$insert['alter_bis'] = $this->input->post('alter_bis');
 				$insert['spieldauer'] = $this->input->post('spieldauer');
-				$insert['herkunft_id'] = $this->input->post('herkunft_id');
 				$insert['externe_id'] = $this->input->post('externe_id');
-				$insert['zielgruppe'] = $this->input->post('zielgruppe');
 				$insert['sprache_regeln'] = $this->input->post('sprache_regeln');
 				$insert['level'] = ($this->input->post('level')=="")?NULL:$this->input->post('level');
 				$insert['text_im_spiel'] = ($this->input->post('text_im_spiel')=="")?NULL:$this->input->post('text_im_spiel');
 				$insert['artikelnr_verlag'] = ($this->input->post('artikelnr_verlag')=="")?NULL:$this->input->post('artikelnr_verlag');
+				$insert['zielgruppe'] = ($this->input->post('zielgruppe')=="")?NULL:$this->input->post('zielgruppe');
+				$insert['herkunft_id'] = ($this->input->post('herkunft')=="")?NULL:$this->input->post('herkunft');
 				
 				$this->db->insert('db_spiel', $insert);
-				
+
 				$this->session->set_flashdata('msg', 'Spiel '.$this->input->post('ean').' wurde hinzugefügt.');
 				
 				//list not found toys

@@ -41,10 +41,12 @@ class Spieldb_model extends CI_Model {
 	}
 	public function get_zielgruppe(){
 		$query = $this->db->get('db_zielgruppe');
+		$query = $this->db->group_by('sort');
 		return $query->result();
 	}
 	public function get_herkunft(){
 		$query = $this->db->get('db_herkunft');
+		$query = $this->db->group_by('name');
 		return $query->result();
 	}
 

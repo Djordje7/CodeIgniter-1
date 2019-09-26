@@ -21,7 +21,7 @@ class Select2_model extends CI_Model {
 	public function get_azspieler($search_term) {
 		$this->db->select("azspieler AS id, azspieler AS `text`");
 		$this->db->like("azspieler", $search_term, 'after');
-		$this->db->group_by('azspieler');
+		$this->db->order_by('azspieler');
 		$query = $this->db->get('db_spiel');
 
 		$result = $query->result();
@@ -34,7 +34,7 @@ class Select2_model extends CI_Model {
 	public function get_spieldauer($search_term) {
 		$this->db->select("spieldauer AS id, spieldauer AS `text`");
 		$this->db->like("spieldauer", $search_term, 'after');
-		$this->db->group_by('spieldauer');
+		$this->db->order_by('spieldauer');
 		$query = $this->db->get('db_spiel');
 
 		$result = $query->result();
