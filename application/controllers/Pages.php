@@ -25,26 +25,29 @@
 		 *
 		 * @param $ean to add
 		 */
+		
 		public function add_spiel($ean) {
+			
 			if($this->input->post('ean')){
 				//form was sent
-				if (empty($this->input->post['spiel'] == "")){
-				$this->input->post['spiel'] = NULL;
+			
 				
-				}
+				$insert['ean'] = $this->input->post('ean');
+				$insert['titel'] = $this->input->post('titel');
+				$insert['verlag'] = $this->input->post('verlag');
+				$insert['illustration'] = $this->input->post('illustration');
+				$insert['alter'] = $this->input->post('alter');
+				$insert['alter_bis'] = $this->input->post('alter_bis');
+				$insert['spieldauer'] = $this->input->post('spieldauer');
+				$insert['herkunft_id'] = $this->input->post('herkunft_id');
+				$insert['externe_id'] = $this->input->post('externe_id');
+				$insert['zielgruppe'] = $this->input->post('zielgruppe');
+				$insert['sprache_regeln'] = $this->input->post('sprache_regeln');
+				$insert['level'] = ($this->input->post('level')=="")?NULL:$this->input->post('level');
+				$insert['text_im_spiel'] = ($this->input->post('text_im_spiel')=="")?NULL:$this->input->post('text_im_spiel');
+				$insert['artikelnr_verlag'] = ($this->input->post('artikelnr_verlag')=="")?NULL:$this->input->post('artikelnr_verlag');
 				
-				$data['spiel']['ean'] = $this->input->post('ean');
-				$data['spiel']['titel'] = $this->input->post('titel');
-				$data['spiel']['verlag'] = $this->input->post('verlag');
-				$data['spiel']['illustration'] = $this->input->post('illustration');
-				$data['spiel']['alter'] = $this->input->post('alter');
-				$data['spiel']['alter_bis'] = $this->input->post('alter_bis');
-				$data['spiel']['spieldauer'] = $this->input->post('spieldauer');
-				$data['spiel']['herkunft_id'] = $this->input->post('herkunft');
-				$data['spiel']['externe_id'] = $this->input->post('externe_id');
-				$data['spiel']['zielgruppe'] = $this->input->post('zielgruppe');
-				$data['spiel']['level'] = $this->input->post('level');
-				$this->spieldb->add_spiel($data['spiel']);
+				$this->db->insert('db_spiel', $insert);
 				
 				$this->session->set_flashdata('msg', 'Spiel '.$this->input->post('ean').' wurde hinzugefügt.');
 				
@@ -57,7 +60,6 @@
 				$data['level'] = $this->spieldb->get_level();
 				$data['zielgruppe'] = $this->spieldb->get_zielgruppe();
 				$data['herkunft'] = $this->spieldb->get_herkunft();
-				$data['externe_id'] = $this->spieldb->get_extern();
 
 				$this->render($data);
 			}
@@ -81,7 +83,6 @@
 
 			echo $json;
 		}
-
 
 		private function render($data){
 			$this->load->view('templates/header', $data);

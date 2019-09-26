@@ -47,9 +47,9 @@
 			`beschreibung`
 			`inhalt`
 			`jahr`
-			////`artikelnr_verlag`
-			////`sprache_regeln`
-			////`text_im_spiel`
+			`artikelnr_verlag`
+			`sprache_regeln`
+			`text_im_spiel`
 			`level`
 			`zielgruppe`
 			`externe_id`
@@ -112,8 +112,8 @@
 					</div>		
 				</div>
 					<div class="form-group">
-						<select class="form-control" id="zielgruppe_id" name="zielgruppe_id">
-							<option>Zielgruppe_id</option>
+						<select class="form-control" id="zielgruppe" name="zielgruppe">
+							<option>Zielgruppe</option>
 							<?php 
 								foreach($zielgruppe as $row){?>
 									<option value="<?=$row->id?>"><?=$row->zielgruppe?></option>;
@@ -125,6 +125,9 @@
 					<div class="form-group">
 						<input type="text" maxlength="255" class="form-control" id="beschreibung_titel" name="beschreibung_titel" placeholder="Beschreibung Titel">
 					</div>
+					<div class="form-group">
+						<input type="text" maxlength="255" class="form-control" id="artikelnr_verlag" name="artikelnr_verlag" placeholder="artikelnr_verlag">
+					</div>
 
 					<div class="form-group">
 						<select class="form-control" id="herkunft_id" name="herkunft_id">
@@ -134,6 +137,26 @@
 									<option value="<?=$row->id?>"><?=$row->name?></option>;
 								<?php }
 							?>	
+						</select>
+					</div>
+
+					<div class="form-group">
+						<select class="form-control" id="text_im_spiel" name="text_im_spiel">
+							<option value="">nicht gesetzt</option>
+							<option value="0">Nein</option>
+							<option value="1">Ja</option>
+						</select>
+					</div>
+
+					<div class="form-group">
+						<select class="form-control" id="sprache_regeln" name="sprache_regeln">
+							<option value="">Sprache</option>
+							<option value="de">Deutsch</option>
+							<option value="fr">Französisch</option>
+							<option value="nl">Niederländisch</option>
+							<option value="es">Spanisch</option>
+							<option value="en">Englisch</option>
+							<option value="po">Polnisch</option>
 						</select>
 					</div>
 

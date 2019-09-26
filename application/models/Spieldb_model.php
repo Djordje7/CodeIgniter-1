@@ -47,10 +47,7 @@ class Spieldb_model extends CI_Model {
 		$query = $this->db->get('db_herkunft');
 		return $query->result();
 	}
-	public function get_extern(){
-		$query = $this->db->get('db_spiel');
-		return $query->result();
-	}
+
 
 	/**
 	 * @param $spiel array with data to add
