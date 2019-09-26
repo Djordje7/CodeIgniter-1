@@ -113,7 +113,7 @@
 				</div>
 					<div class="form-group">
 						<select class="form-control" id="zielgruppe" name="zielgruppe">
-							<option>Zielgruppe</option>
+							<option value="">Zielgruppe</option>
 							<?php 
 								foreach($zielgruppe as $row){?>
 									<option value="<?=$row->id?>"><?=$row->zielgruppe?></option>;
@@ -131,7 +131,7 @@
 
 					<div class="form-group">
 						<select class="form-control" id="herkunft_id" name="herkunft_id">
-							<option>herkunft_id</option>
+							<option value="">herkunft_id</option>
 							<?php 
 								foreach($herkunft as $row){?>
 									<option value="<?=$row->id?>"><?=$row->name?></option>;

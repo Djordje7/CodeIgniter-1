@@ -46,9 +46,9 @@
 				$insert['spieldauer'] = $this->input->post('spieldauer');
 				$insert['externe_id'] = $this->input->post('externe_id');
 				$insert['beschreibung'] = $this->input->post('beschreibung');
-				$insert['level'] = ($this->input->post('level')=="")?NULL:$this->input->post('level');
 				$insert['sprache_regeln'] = $this->input->post('sprache_regeln');
 				$insert['sprache'] = $this->input->post('sprache');
+				$insert['level'] = ($this->input->post('level')=="")?NULL:$this->input->post('level');
 				$insert['text_im_spiel'] = ($this->input->post('text_im_spiel')=="")?NULL:$this->input->post('text_im_spiel');
 				$insert['artikelnr_verlag'] = ($this->input->post('artikelnr_verlag')=="")?NULL:$this->input->post('artikelnr_verlag');
 				$insert['zielgruppe'] = ($this->input->post('zielgruppe')=="")?NULL:$this->input->post('zielgruppe');
