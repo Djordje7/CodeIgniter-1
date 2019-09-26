@@ -47,9 +47,9 @@
 			`beschreibung`
 			`inhalt`
 			`jahr`
-			`artikelnr_verlag`
-			`sprache_regeln`
-			`text_im_spiel`
+			////`artikelnr_verlag`
+			////`sprache_regeln`
+			////`text_im_spiel`
 			`level`
 			`zielgruppe`
 			`externe_id`
@@ -112,8 +112,8 @@
 					</div>		
 				</div>
 					<div class="form-group">
-						<select class="form-control" id="zielgruppe" name="zielgruppe">
-							<option>Zielgruppe</option>
+						<select class="form-control" id="zielgruppe_id" name="zielgruppe_id">
+							<option>Zielgruppe_id</option>
 							<?php 
 								foreach($zielgruppe as $row){?>
 									<option value="<?=$row->id?>"><?=$row->zielgruppe?></option>;
@@ -127,13 +127,25 @@
 					</div>
 
 					<div class="form-group">
-						<select class="form-control select2-autocomplete" placeholder="herkunft" id="herkunft" name="herkunft" maxlength="50" required></select>
+						<select class="form-control" id="herkunft_id" name="herkunft_id">
+							<option>herkunft_id</option>
+							<?php 
+								foreach($herkunft as $row){?>
+									<option value="<?=$row->id?>"><?=$row->name?></option>;
+								<?php }
+							?>	
+						</select>
+					</div>
+
+					
+
+					<div class="form-group">
+					<input type="number" maxlength="50" class="form-control" id="externe_id" name="externe_id" placeholder="externe_id">
 					</div>
 
 					<div class="form-group">
 						<textarea class="form-control" cols="30" rows="10" id="beschreibung" name="beschreibung" placeholder="Beschreibung"></textarea>
 					</div>
-
 					
 					<div class="form-group">
 						<textarea class="form-control" cols="30" rows="10" id="inhalt" name="inhalt" placeholder="Inhalt"></textarea>

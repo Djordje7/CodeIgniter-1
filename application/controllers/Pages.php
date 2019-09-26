@@ -28,11 +28,11 @@
 		public function add_spiel($ean) {
 			if($this->input->post('ean')){
 				//form was sent
-				if (!empty($_POST['value'] == "")) {
-					$_POST['value'] = NULL;
-					
+				if (empty($this->input->post['spiel'] == "")){
+				$this->input->post['spiel'] = NULL;
+				
 				}
-
+				
 				$data['spiel']['ean'] = $this->input->post('ean');
 				$data['spiel']['titel'] = $this->input->post('titel');
 				$data['spiel']['verlag'] = $this->input->post('verlag');
@@ -40,13 +40,14 @@
 				$data['spiel']['alter'] = $this->input->post('alter');
 				$data['spiel']['alter_bis'] = $this->input->post('alter_bis');
 				$data['spiel']['spieldauer'] = $this->input->post('spieldauer');
-				$data['spiel']['herkunft'] = $this->input->post('herkunft');
+				$data['spiel']['herkunft_id'] = $this->input->post('herkunft');
+				$data['spiel']['externe_id'] = $this->input->post('externe_id');
 				$data['spiel']['zielgruppe'] = $this->input->post('zielgruppe');
 				$data['spiel']['level'] = $this->input->post('level');
 				$this->spieldb->add_spiel($data['spiel']);
-
+				
 				$this->session->set_flashdata('msg', 'Spiel '.$this->input->post('ean').' wurde hinzugefügt.');
-
+				
 				//list not found toys
 				redirect('pages/not_found');
 			} else {
@@ -55,6 +56,8 @@
 				$data['ean'] = $ean;
 				$data['level'] = $this->spieldb->get_level();
 				$data['zielgruppe'] = $this->spieldb->get_zielgruppe();
+				$data['herkunft'] = $this->spieldb->get_herkunft();
+				$data['externe_id'] = $this->spieldb->get_extern();
 
 				$this->render($data);
 			}
