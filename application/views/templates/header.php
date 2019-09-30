@@ -27,7 +27,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col">
-			<ul class="nav">
+			<ul class="nav ">
 				<li class="nav-item">
 					<a class="nav-link <?=$page=='not_found'?'active':''?>" href="/pages/not_found">Not Found</a>
 				</li>

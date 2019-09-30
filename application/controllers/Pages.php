@@ -48,6 +48,7 @@
 				$insert['beschreibung'] = $this->input->post('beschreibung');
 				$insert['sprache_regeln'] = $this->input->post('sprache_regeln');
 				$insert['sprache'] = $this->input->post('sprache');
+				$insert['genre'] = $this->input->post('genre');
 				$insert['level'] = ($this->input->post('level')=="")?NULL:$this->input->post('level');
 				$insert['text_im_spiel'] = ($this->input->post('text_im_spiel')=="")?NULL:$this->input->post('text_im_spiel');
 				$insert['artikelnr_verlag'] = ($this->input->post('artikelnr_verlag')=="")?NULL:$this->input->post('artikelnr_verlag');
@@ -67,6 +68,7 @@
 				$data['level'] = $this->spieldb->get_level();
 				$data['zielgruppe'] = $this->spieldb->get_zielgruppe();
 				$data['herkunft'] = $this->spieldb->get_herkunft();
+				$data['genre'] = $this->spieldb->get_genre();
 				
 				$this->render($data);
 			}
@@ -75,15 +77,10 @@
 		public function get_json($type) {
 			$term = $this->input->get('term');
 			switch ($type){
-				case 'verlag';
-					$data = $this->select2->get_verlage($term);
+				case '';
+					$data = $this->select2->get_select_items($term);
 					break;
-				case 'azspieler';
-					$data = $this->select2->get_azspieler($term);
-					break;
-				case 'spieldauer';
-					$data = $this->select2->get_spieldauer($term);
-					break;
+				
 			}
 
 			$json =  json_encode(["results" => $data]);

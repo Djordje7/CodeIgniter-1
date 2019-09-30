@@ -40,15 +40,21 @@ class Spieldb_model extends CI_Model {
 		return $query->result();
 	}
 	public function get_zielgruppe(){
+		$this->db->order_by('sort');
 		$query = $this->db->get('db_zielgruppe');
 		return $query->result();
 	}
 	public function get_herkunft(){
+		$this->db->order_by('name');
 		$query = $this->db->get('db_herkunft');
 		return $query->result();
 	}
 
-
+	public function get_genre(){
+		$this->db->order_by('id');
+		$query = $this->db->get('db_genre');
+		return $query->result();
+	}
 	/**
 	 * @param $spiel array with data to add
 	 */
