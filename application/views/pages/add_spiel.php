@@ -62,17 +62,19 @@
 			?>
 
 			<?= form_open();?>
+
+					<div class="form-group">
+						<input type="text" maxlength="50" class="form-control" id="titel" name="titel" placeholder="Titel" require>
+					</div>
 				<div class="form-row">
-					<div class="form-group col-md-4">
+					<div class="form-group col-md-6">
 						<input type="text" maxlength="100" class="form-control" id="ean" name="ean" value="<?=$ean?>">
 					</div>
-					<div class="form-group col-md-4">
-						<select class="form-control select2-autocomplete" placeholder="Verlag" id="verlag" name="verlag" maxlength="50"></select>
-					</div>
-					<div class="form-group col-md-4">
-						<input type="text" maxlength="50" class="form-control" id="titel" name="titel" placeholder="Titel">
+					<div class="form-group col-md-6">
+						<input type="number" maxlength="11" class="form-control" id="externe_id" name="externe_id" placeholder="externe_id">
 					</div>
 				</div>
+				
 					<div class="form-group">
 						<select class="form-control select2-multiple" id="genres" name="genres[]" multiple="multiple" maxlength="30">
 							<option value=""></option>
@@ -104,15 +106,15 @@
 				</div>
 				<div class="form-row">
 					<div class="form-group col-md-6">
+						<select class="form-control select2-autocomplete" maxlength="30"  id="spieldauer" name="spieldauer" placeholder="Spieldauer"></select>
+					</div>
+					<div class="form-group col-md-6">
 						<select class="form-control select2-autocomplete" placeholder="Anzahl Spieler" id="azspieler" name="azspieler" maxlength="50"></select>
 					</div>
 
-					<div class="form-group col-md-3">
-						<select class="form-control select2-autocomplete" maxlength="30"  id="spieldauer" name="spieldauer" placeholder="Spieldauer"></select>
-					</div>
-				
-
-					<div class="form-group col-md-3">
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-6">
 						<select class="form-control" id="level" name="level">
 							<option value="">Level</option>
 							<?php 
@@ -122,9 +124,9 @@
 							?>	
 						</select>
 					</div>		
-				</div>
-					<div class="form-group">
-						<select class="form-control" id="zielgruppe" name="zielgruppe">
+				
+					<div class="form-group col-md-6">
+						<select class="form-control" id="zielgruppe" name="zielgruppe" require>
 							<option value="">Zielgruppe</option>
 							<?php 
 								foreach($zielgruppe as $row){?>
@@ -133,13 +135,16 @@
 							?>	
 						</select>
 					</div>
-				
-					<div class="form-group">
-						<input type="text" maxlength="255" class="form-control" id="beschreibung_titel" name="beschreibung_titel" placeholder="Beschreibung Titel">
+				</div>
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<select class="form-control select2-autocomplete" placeholder="Verlag" id="verlag" name="verlag" maxlength="50" require></select>
 					</div>
-					<div class="form-group">
+					<div class="form-group col-md-6">
 						<input type="text" maxlength="255" class="form-control" id="artikelnr_verlag" name="artikelnr_verlag" placeholder="artikelnr_verlag">
 					</div>
+
+				</div>
 				<div class="form-row">
 					<div class="form-group col-md-6">
 						<select class="form-control" id="herkunft_id" name="herkunft_id">
@@ -161,28 +166,27 @@
 					</div>
 				</div>
 				<div class="form-row">
-					<div class="form-group col-md-4">
-						<input type="text" maxlength="20" class="form-control" id="sprache_regeln" name="sprache_regeln" placeholder="sprache_regeln">
-					</div>
-
-					<div class="form-group col-md-3">
+					<div class="form-group col-md-6">
 						<input type="text" maxlength="2" class="form-control" id="sprache" name="sprache" placeholder="sprache">
 					</div>
-						
-					<div class="form-group col-md-5">
-					<input type="number" maxlength="11" class="form-control" id="externe_id" name="externe_id" placeholder="externe_id">
+					<div class="form-group col-md-6">
+						<input type="text" maxlength="20" class="form-control" id="sprache_regeln" name="sprache_regeln" placeholder="sprache_regeln">
 					</div>
 				</div>
-					<div class="input-group mb-3">
-						<div class="custom-file">
-						<input type="file" class="custom-file-input" id="inputGroupFile02">
-						<label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Choose file</label>
-						</div>
-						<div class="input-group-append">
-							<span class="input-group-text" id="inputGroupFileAddon02">Upload</span>
-						</div>
-					</div>
 
+				<div class="form-group">
+						<select class="form-control" id="..." name="...">
+							<option value="">Zubehör</option>
+							<?php 
+								foreach($level as $row){?>
+									<option value="<?=$row->level?>"><?=$row->level_text?></option>;
+								<?php }
+							?>	
+						</select>
+				</div>
+					<div class="form-group">
+						<input type="text" maxlength="255" class="form-control" id="beschreibung_titel" name="beschreibung_titel" placeholder="Beschreibung Titel" >
+					</div>
 					<div class="form-group">
 						<textarea class="form-control" cols="30" rows="10" id="beschreibung" name="beschreibung" placeholder="Beschreibung"></textarea>
 					</div>
@@ -190,26 +194,25 @@
 					<div class="form-group">
 						<textarea class="form-control" cols="30" rows="10" id="inhalt" name="inhalt" placeholder="Inhalt"></textarea>
 					</div>
-					
 					<div class="form-group">
 						<input type="number" maxlength="11" class="form-control" id="jahr" name="jahr" placeholder="Jahr">
 					</div>
-				
-					<div>
-					<div class="input-group-text">
-						<div class="input-group-text">
-							<input type="checkbox" name="gesperrt" id="gesperrt" maxlength="3" placeholder="hallo">
-					<?php 
-					/*if(isset($_POST['gesperrt']) == '1'){
-						$checkbox = "ja";
-					}else{
-						$checkbox = "nein";
-					}*/
-					//$checkbox = (empty($_POST['gesperrt'])) ? 1 : '';
-					?>
-						</div>
+					<div class="form-group form-check">
+						<input type="checkbox" class="form-check-input" name="gesperrt" id="exampleCheck1">
+						<label class="form-check-label" for="exampleCheck1">Sperren!</label>
+					
+						<?php 
+						if(isset($_POST['gesperrt'])){
+							$checkbox = true;
+						}else{
+							$checkbox = false;
+						}
+						?>
+						
 					</div>
-				</div>
+				
+
+				
 					<button type="submit" class="btn btn-primary">Speichern</button>
 			<?= form_close()?>
 		</div>

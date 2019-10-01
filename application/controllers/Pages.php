@@ -44,6 +44,7 @@
 				$insert['gesperrt'] = $this->input->post('gesperrt');
 				$insert['beschreibung_titel'] = $this->input->post('beschreibung_titel');
 				$insert['alter_bis'] = $this->input->post('alter_bis');
+				$insert[''] = $this->input->post('');
 				$insert['spieldauer'] = $this->input->post('spieldauer');
 				$insert['externe_id'] = $this->input->post('externe_id');
 				$insert['beschreibung'] = $this->input->post('beschreibung');
@@ -77,6 +78,7 @@
 				$data['zielgruppe'] = $this->spieldb->get_zielgruppe();
 				$data['herkunft'] = $this->spieldb->get_herkunft();
 				$data['genre'] = $this->spieldb->get_genre();
+				$data[''] = $this->spieldb->get_doku();
 				
 				$this->render($data);
 			}
