@@ -50,6 +50,11 @@ class Spieldb_model extends CI_Model {
 		return $query->result();
 	}
 
+/*	public function get_youtube(){
+		$query = $this->db->get('db_spiel_dokument');
+		return $query->result();
+	}*/
+
 	public function get_zielgruppe(){
 		$this->db->order_by('sort');
 		$query = $this->db->get('db_zielgruppe');
@@ -67,11 +72,7 @@ class Spieldb_model extends CI_Model {
 		$query = $this->db->get('db_genre');
 		return $query->result();
 	}
-	public function get_doku(){
-		//$this->db->order_by('id');
-		$query = $this->db->get('db_spiel_dokument');
-		return $query->result();
-	}
+
 	/**
 	 * @param $spiel array with data to add
 	 */

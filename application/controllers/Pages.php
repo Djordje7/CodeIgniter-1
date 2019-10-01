@@ -56,17 +56,31 @@
 				$insert['herkunft_id'] = ($this->input->post('herkunft_id')=="")?NULL:$this->input->post('herkunft_id');
 
 				$this->db->insert('db_spiel', $insert);
-
+				
 				$last_id = $this->db->insert_id();
 				$genres = $this->input->post('genres');
-				foreach($genres as $id_genre){ 
-					$data = ['id_spiel' => $last_id,
-							 'id_genre' => $id_genre ];
-					$this->db->insert('db_spiel_genre', $data); 
-				}
-
-				$this->session->set_flashdata('msg', 'Spiel '.$this->input->post('ean').' wurde hinzugefügt.');
 				
+				if ($genres != NULL){
+					foreach($genres as $id_genre){ 
+						$data = ['id_spiel' => $last_id,
+								'id_genre' => $id_genre ];
+						$this->db->insert('db_spiel_genre', $data); 
+						
+					}
+				}
+				die;
+				$url = $this->input->post('original_url');
+				$titel = $this->input->post('titel');
+					$data = ['titel' => $titel,
+							 'original_url' => $url];
+					if ($url != ""){
+						$this->db->insert('db_spiel_dokument', $data); 
+					}
+					
+				
+			
+				$this->session->set_flashdata('msg', 'Spiel '.$this->input->post('ean').' wurde hinzugefügt.');
+			
 				//list not found toys
 				redirect('pages/not_found');
 			} else {
@@ -77,7 +91,8 @@
 				$data['zielgruppe'] = $this->spieldb->get_zielgruppe();
 				$data['herkunft'] = $this->spieldb->get_herkunft();
 				$data['genre'] = $this->spieldb->get_genre();
-					
+			
+
 				$this->render($data);
 			}
 		}

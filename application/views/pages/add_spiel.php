@@ -80,7 +80,7 @@
 							<option value=""></option>
 							<?php 
 								foreach($genre as $row){?>
-									<option value="<?=$row->id?>"><?=$row->genre?></option>
+				 					<option value="<?=$row->id?>"><?=$row->genre?></option>
 								<?php }
 							?>	
 						</select>
@@ -190,11 +190,11 @@
 
 				<div class="form-row">
 					<div class="form-group col-md-6">
-						<input type="text" maxlength="255" class="form-control" id="beschreibung_titel" name="beschreibung_titel" placeholder="video" >
+						<input type="text" value="Erklärvideo" maxlength="50" class="form-control" id="titel" name="titel" placeholder="video typ" >
 					</div>
 				
 					<div class="form-group col-md-6">
-						<input type="text" maxlength="255" class="form-control" id="beschreibung_titel" name="beschreibung_titel" placeholder="Beschreibung Titel" >
+						<input type="text" maxlength="255" class="form-control" id="original_url" name="original_url" placeholder="Youtube Link" >
 					</div>
 				</div>
 
