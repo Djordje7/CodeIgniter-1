@@ -44,7 +44,6 @@
 				$insert['gesperrt'] = $this->input->post('gesperrt');
 				$insert['beschreibung_titel'] = $this->input->post('beschreibung_titel');
 				$insert['alter_bis'] = $this->input->post('alter_bis');
-				$insert[''] = $this->input->post('');
 				$insert['spieldauer'] = $this->input->post('spieldauer');
 				$insert['externe_id'] = $this->input->post('externe_id');
 				$insert['beschreibung'] = $this->input->post('beschreibung');
@@ -58,13 +57,23 @@
 				
 				
 				$this->db->insert('db_spiel', $insert);
-				
+				if (!isset($_POST['gesperrt'])){
+					$checkbox = true;
+				} else{
+					$checkbox = $_POST['gesperrt'];
+				}
+
 				$last_id = $this->db->insert_id();
 				$genres = $this->input->post('genres');
 				foreach($genres as $id_genre){ 
 					$data = ['id_spiel' => $last_id,
 							 'id_genre' => $id_genre ];
 					$this->db->insert('db_spiel_genre', $data); 
+				}
+				if (isset($_POST['gesperrt']) == true){
+					$checkbox = true;
+				}else{
+					$checkbox = false;
 				}
 				$this->session->set_flashdata('msg', 'Spiel '.$this->input->post('ean').' wurde hinzugefügt.');
 				
@@ -78,8 +87,7 @@
 				$data['zielgruppe'] = $this->spieldb->get_zielgruppe();
 				$data['herkunft'] = $this->spieldb->get_herkunft();
 				$data['genre'] = $this->spieldb->get_genre();
-				$data[''] = $this->spieldb->get_doku();
-				
+					
 				$this->render($data);
 			}
 		}

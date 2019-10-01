@@ -174,16 +174,6 @@
 					</div>
 				</div>
 
-				<div class="form-group">
-						<select class="form-control" id="..." name="...">
-							<option value="">Zubehör</option>
-							<?php 
-								foreach($level as $row){?>
-									<option value="<?=$row->level?>"><?=$row->level_text?></option>;
-								<?php }
-							?>	
-						</select>
-				</div>
 					<div class="form-group">
 						<input type="text" maxlength="255" class="form-control" id="beschreibung_titel" name="beschreibung_titel" placeholder="Beschreibung Titel" >
 					</div>
@@ -197,21 +187,22 @@
 					<div class="form-group">
 						<input type="number" maxlength="11" class="form-control" id="jahr" name="jahr" placeholder="Jahr">
 					</div>
-					<div class="form-group form-check">
-						<input type="checkbox" class="form-check-input" name="gesperrt" id="exampleCheck1">
-						<label class="form-check-label" for="exampleCheck1">Sperren!</label>
-					
-						<?php 
-						if(isset($_POST['gesperrt'])){
-							$checkbox = true;
-						}else{
-							$checkbox = false;
-						}
-						?>
-						
+
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<input type="text" maxlength="255" class="form-control" id="beschreibung_titel" name="beschreibung_titel" placeholder="video" >
 					</div>
 				
+					<div class="form-group col-md-6">
+						<input type="text" maxlength="255" class="form-control" id="beschreibung_titel" name="beschreibung_titel" placeholder="Beschreibung Titel" >
+					</div>
+				</div>
 
+					<div class="form-group form-check">
+						<input type="checkbox" class="form-check-input" name="gesperrt" id="gesperrt" value="1">
+						<input type="hidden" name="checkbox1" value="0" />
+						<label class="form-check-label" for="exampleCheck1">Sperren!</label>
+					</div>
 				
 					<button type="submit" class="btn btn-primary">Speichern</button>
 			<?= form_close()?>
