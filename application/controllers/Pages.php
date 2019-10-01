@@ -41,7 +41,7 @@
 				$insert['azspieler'] = $this->input->post('azspieler');
 				$insert['jahr'] = $this->input->post('jahr');
 				$insert['inhalt'] = $this->input->post('inhalt');
-				$insert['gesperrt'] = $this->input->post('gesperrt');
+				$insert['gesperrt'] = ($this->input->post('gesperrt')=="1")?1:0;
 				$insert['beschreibung_titel'] = $this->input->post('beschreibung_titel');
 				$insert['alter_bis'] = $this->input->post('alter_bis');
 				$insert['spieldauer'] = $this->input->post('spieldauer');
@@ -54,14 +54,8 @@
 				$insert['artikelnr_verlag'] = ($this->input->post('artikelnr_verlag')=="")?NULL:$this->input->post('artikelnr_verlag');
 				$insert['zielgruppe'] = ($this->input->post('zielgruppe')=="")?NULL:$this->input->post('zielgruppe');
 				$insert['herkunft_id'] = ($this->input->post('herkunft_id')=="")?NULL:$this->input->post('herkunft_id');
-				
-				
+
 				$this->db->insert('db_spiel', $insert);
-				if (!isset($_POST['gesperrt'])){
-					$checkbox = true;
-				} else{
-					$checkbox = $_POST['gesperrt'];
-				}
 
 				$last_id = $this->db->insert_id();
 				$genres = $this->input->post('genres');
@@ -70,11 +64,7 @@
 							 'id_genre' => $id_genre ];
 					$this->db->insert('db_spiel_genre', $data); 
 				}
-				if (isset($_POST['gesperrt']) == true){
-					$checkbox = true;
-				}else{
-					$checkbox = false;
-				}
+
 				$this->session->set_flashdata('msg', 'Spiel '.$this->input->post('ean').' wurde hinzugefügt.');
 				
 				//list not found toys
