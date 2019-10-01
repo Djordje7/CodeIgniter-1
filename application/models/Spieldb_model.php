@@ -33,17 +33,29 @@ class Spieldb_model extends CI_Model {
 								ORDER BY zugriff_found DESC;');
 		return $query->result();
 	}
+	
 
+	public function get_select_items($field, $search_term) {
+		$this->db->select("$field AS id, $field AS `text`");
+		$this->db->like($field, $search_term, 'after');
+		$this->db->order_by($field);
+		$this->db->group_by($field);
+		$query = $this->db->get('db_spiel');
+		$result = $query->result();
+		return $result;
+	}
 
 	public function get_level(){
 		$query = $this->db->get('db_level');
 		return $query->result();
 	}
+
 	public function get_zielgruppe(){
 		$this->db->order_by('sort');
 		$query = $this->db->get('db_zielgruppe');
 		return $query->result();
 	}
+
 	public function get_herkunft(){
 		$this->db->order_by('name');
 		$query = $this->db->get('db_herkunft');

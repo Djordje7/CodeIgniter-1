@@ -19,11 +19,12 @@
                     }
                 }
             });
+			$('.select2-multiple').select2({
+				placeholder: 'Genres'
+			})
 		});
     });
-	$(document).ready(function() {
-	$('.js-example-basic-multiple').select2();
-});
+
 </script>
 <div class="container mt-5">
 	<div class="row">
@@ -62,35 +63,26 @@
 
 			<?= form_open();?>
 				<div class="form-row">
-					<div class="form-group col-md-6">
-						<input type="text" maxlength="100" class="form-control" id="ean" name="ean" value="<?=$ean?>" required>
+					<div class="form-group col-md-4">
+						<input type="text" maxlength="100" class="form-control" id="ean" name="ean" value="<?=$ean?>">
 					</div>
-						
-					<div class="form-group col-md-6">
-						<input type="text" maxlength="50" class="form-control" id="titel" name="titel" placeholder="Titel" required>
+					<div class="form-group col-md-4">
+						<select class="form-control select2-autocomplete" placeholder="Verlag" id="verlag" name="verlag" maxlength="50"></select>
+					</div>
+					<div class="form-group col-md-4">
+						<input type="text" maxlength="50" class="form-control" id="titel" name="titel" placeholder="Titel">
 					</div>
 				</div>
-				
-				<div class="form-row">
-					<div class="form-group col-md-4">
-						<select class="form-control select2-autocomplete" placeholder="Verlag" id="verlag" name="verlag" maxlength="50" required></select>
-					</div>
-					<div class="form-group col-md-5">
-						<input type="text" maxlength="50" class="form-control" id="titel" name="titel" placeholder="Titel" required>
-					</div>
-
-					<div class="form-group col-md-3">
-						<select class="js-example-basic-multiple" id="genre" name="genre" multiple="multiple" maxlength="30">
+					<div class="form-group">
+						<select class="form-control select2-multiple" id="genres" name="genres[]" multiple="multiple" maxlength="30">
 							<option value=""></option>
 							<?php 
 								foreach($genre as $row){?>
-									<option value="<?=$row->id?>"><?=$row->genre?></option>;
+									<option value="<?=$row->id?>"><?=$row->genre?></option>
 								<?php }
 							?>	
 						</select>
 					</div>
-				</div>
-
 				<div class="form-row">
 					<div class="form-group col-md-6">
 						<input type="text" maxlength="50" class="form-control" id="autor" name="autor" placeholder="autor">
@@ -148,10 +140,10 @@
 					<div class="form-group">
 						<input type="text" maxlength="255" class="form-control" id="artikelnr_verlag" name="artikelnr_verlag" placeholder="artikelnr_verlag">
 					</div>
-
-					<div class="form-group">
+				<div class="form-row">
+					<div class="form-group col-md-6">
 						<select class="form-control" id="herkunft_id" name="herkunft_id">
-							<option value="">herkunft</option>
+							<option value="">Herkunft</option>
 							<?php 
 								foreach($herkunft as $row){?>
 									<option value="<?=$row->id?>"><?=$row->name?></option>;
@@ -159,15 +151,16 @@
 							?>	
 						</select>
 					</div>
-
-					<div class="form-group">
+				
+					<div class="form-group col-md-6">
 						<select class="form-control" id="text_im_spiel" name="text_im_spiel">
 							<option value="">Text im Spiel</option>
 							<option value="0">Nein</option>
 							<option value="1">Ja</option>
 						</select>
 					</div>
-						<div class="form-row">
+				</div>
+				<div class="form-row">
 					<div class="form-group col-md-4">
 						<input type="text" maxlength="20" class="form-control" id="sprache_regeln" name="sprache_regeln" placeholder="sprache_regeln">
 					</div>
@@ -179,8 +172,17 @@
 					<div class="form-group col-md-5">
 					<input type="number" maxlength="11" class="form-control" id="externe_id" name="externe_id" placeholder="externe_id">
 					</div>
+				</div>
+					<div class="input-group mb-3">
+						<div class="custom-file">
+						<input type="file" class="custom-file-input" id="inputGroupFile02">
+						<label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Choose file</label>
 						</div>
-					
+						<div class="input-group-append">
+							<span class="input-group-text" id="inputGroupFileAddon02">Upload</span>
+						</div>
+					</div>
+
 					<div class="form-group">
 						<textarea class="form-control" cols="30" rows="10" id="beschreibung" name="beschreibung" placeholder="Beschreibung"></textarea>
 					</div>
@@ -188,23 +190,26 @@
 					<div class="form-group">
 						<textarea class="form-control" cols="30" rows="10" id="inhalt" name="inhalt" placeholder="Inhalt"></textarea>
 					</div>
-
+					
 					<div class="form-group">
 						<input type="number" maxlength="11" class="form-control" id="jahr" name="jahr" placeholder="Jahr">
 					</div>
-					
+				
 					<div>
-						<input type="checkbox" name="checkbox" id="checkbox">
-					</div>
-
-					<?php/*  if(($_POST['checkbox']) == '1'){
+					<div class="input-group-text">
+						<div class="input-group-text">
+							<input type="checkbox" name="gesperrt" id="gesperrt" maxlength="3" placeholder="hallo">
+					<?php 
+					/*if(isset($_POST['gesperrt']) == '1'){
 						$checkbox = "ja";
 					}else{
 						$checkbox = "nein";
 					}*/
+					//$checkbox = (empty($_POST['gesperrt'])) ? 1 : '';
 					?>
-					
-
+						</div>
+					</div>
+				</div>
 					<button type="submit" class="btn btn-primary">Speichern</button>
 			<?= form_close()?>
 		</div>

@@ -41,6 +41,7 @@
 				$insert['azspieler'] = $this->input->post('azspieler');
 				$insert['jahr'] = $this->input->post('jahr');
 				$insert['inhalt'] = $this->input->post('inhalt');
+				$insert['gesperrt'] = $this->input->post('gesperrt');
 				$insert['beschreibung_titel'] = $this->input->post('beschreibung_titel');
 				$insert['alter_bis'] = $this->input->post('alter_bis');
 				$insert['spieldauer'] = $this->input->post('spieldauer');
@@ -48,15 +49,22 @@
 				$insert['beschreibung'] = $this->input->post('beschreibung');
 				$insert['sprache_regeln'] = $this->input->post('sprache_regeln');
 				$insert['sprache'] = $this->input->post('sprache');
-				$insert['genre'] = $this->input->post('genre');
 				$insert['level'] = ($this->input->post('level')=="")?NULL:$this->input->post('level');
 				$insert['text_im_spiel'] = ($this->input->post('text_im_spiel')=="")?NULL:$this->input->post('text_im_spiel');
 				$insert['artikelnr_verlag'] = ($this->input->post('artikelnr_verlag')=="")?NULL:$this->input->post('artikelnr_verlag');
 				$insert['zielgruppe'] = ($this->input->post('zielgruppe')=="")?NULL:$this->input->post('zielgruppe');
 				$insert['herkunft_id'] = ($this->input->post('herkunft_id')=="")?NULL:$this->input->post('herkunft_id');
 				
+				
 				$this->db->insert('db_spiel', $insert);
-
+				
+				$last_id = $this->db->insert_id();
+				$genres = $this->input->post('genres');
+				foreach($genres as $id_genre){ 
+					$data = ['id_spiel' => $last_id,
+							 'id_genre' => $id_genre ];
+					$this->db->insert('db_spiel_genre', $data); 
+				}
 				$this->session->set_flashdata('msg', 'Spiel '.$this->input->post('ean').' wurde hinzugefügt.');
 				
 				//list not found toys
@@ -74,15 +82,9 @@
 			}
 		}
 
-		public function get_json($type) {
-			$term = $this->input->get('term');
-			switch ($type){
-				case '';
-					$data = $this->select2->get_select_items($term);
-					break;
-				
-			}
-
+		public function get_json($field) {
+			$search_term = $this->input->get('term');
+			$data = $this->spieldb->get_select_items($field, $search_term);		
 			$json =  json_encode(["results" => $data]);
 
 			echo $json;
