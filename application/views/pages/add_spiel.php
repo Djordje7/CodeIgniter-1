@@ -24,8 +24,9 @@
 			})
 		});
     });
-
 </script>
+
+
 <div class="container mt-5">
 	<div class="row">
 		<div class="col">
@@ -188,13 +189,17 @@
 						<input type="number" maxlength="11" class="form-control" id="jahr" name="jahr" placeholder="Jahr">
 					</div>
 
+					<div class="form-group">
+						<input type="text" maxlength="255" class="form-control" id="bild_link" name="bild_link" placeholder="Bild Link" >
+					</div>
+
 				<div class="form-row">
 					<div class="form-group col-md-6">
-						<input type="text" value="Erklärvideo" maxlength="50" class="form-control" id="titel" name="titel" placeholder="Video Typ" >
+						<input type="text" value="Erklärvideo" maxlength="50" class="form-control" id="youtube_titel" name="youtube_titel" placeholder="Video Typ" >
 					</div>
 				
 					<div class="form-group col-md-6">
-						<input type="text" maxlength="255" class="form-control" id="original_url" name="original_url" placeholder="Youtube Link" >
+						<input type="text" maxlength="255" class="form-control" id="youtube_url" name="youtube_url" placeholder="Youtube Link" >
 					</div>
 				</div>
 

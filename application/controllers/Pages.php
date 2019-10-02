@@ -30,9 +30,10 @@
 			
 			if($this->input->post('ean')){
 				//form was sent
-			
-				
-				$insert['ean'] = $this->input->post('ean');
+
+				$ean = $this->input->post('ean');
+
+				$insert['ean'] = $ean;
 				$insert['titel'] = $this->input->post('titel');
 				$insert['verlag'] = $this->input->post('verlag');
 				$insert['illustration'] = $this->input->post('illustration');
@@ -68,17 +69,78 @@
 						
 					}
 				}
-				die;
-				$url = $this->input->post('original_url');
-				$titel = $this->input->post('titel');
-					$data = ['titel' => $titel,
-							 'original_url' => $url];
-					if ($url != ""){
-						$this->db->insert('db_spiel_dokument', $data); 
+
+
+				$url = $this->input->post('youtube_url');
+				$titel = $this->input->post('youtube_titel');
+				if ($url != ""){
+					$data = [
+						'id_spiel' => $last_id,
+						'doc_code' => 'youtube',
+						'titel' => $titel,
+						'original_url' => $url,
+					];
+					$this->db->insert('db_spiel_dokument', $data);
+				}
+
+
+				//save manual
+				$url = $this->input->post('manual_url');
+				$titel = $this->input->post('manual_titel');
+				if ($url != ""){
+					$data = [
+						'id_spiel' => $last_id,
+						'doc_code' => 'manual',
+						'titel' => $titel,
+						'dateiname' =>  $ean . '.pdf',
+						'original_url' => $url,
+					];
+					$this->db->insert('db_spiel_dokument', $data);
+				}
+
+				if($url!==null) {
+					$manual = file_get_contents($url);
+					$finfo = new finfo(FILEINFO_MIME_TYPE);
+					$mimetype = $finfo->buffer($manual);
+
+					$filename = FCPATH . 'pdf_manuals\\' . $ean . '.pdf';
+
+					if ($mimetype == 'application/pdf') {
+						file_put_contents($filename, $manual);
+					} else {
+						echo "Falsches Dateiformat: <b>$mimetype</b>. Nur pdf-Files sind erlaubt.";
 					}
-					
-				
-			
+				}
+
+
+				//save image
+				$url = $this->input->post('bild_link');
+
+				if($url!==null) {
+					$image = file_get_contents($url);
+					$finfo = new finfo(FILEINFO_MIME_TYPE);
+					$mimetype = $finfo->buffer($image);
+
+					$filename = FCPATH . 'img_spiele\\' . $ean . '.jpg';
+
+					if ($mimetype == 'image/jpeg') {
+						file_put_contents($filename, $image);
+					} elseif ($mimetype == 'image/png') {
+						$image = imagecreatefrompng($url);
+						$bg = imagecreatetruecolor(imagesx($image), imagesy($image));
+						imagefill($bg, 0, 0, imagecolorallocate($bg, 255, 255, 255));
+						imagealphablending($bg, TRUE);
+						imagecopy($bg, $image, 0, 0, 0, 0, imagesx($image), imagesy($image));
+						imagedestroy($image);
+						$quality = 75;
+						imagejpeg($bg, $filename, $quality);
+						imagedestroy($bg);
+					} else {
+						echo "Falsches Dateiformat: <b>$mimetype</b>. Nur jpeg- und png-Bilddateien sind erlaubt.";
+					}
+				}
+
+
 				$this->session->set_flashdata('msg', 'Spiel '.$this->input->post('ean').' wurde hinzugefügt.');
 			
 				//list not found toys
