@@ -190,31 +190,31 @@
 
 				<div class="form-row">
 					<div class="form-group col-md-6">
-						<input type="text" value="Erklärvideo" maxlength="50" class="form-control" id="titel" name="titel" placeholder="video typ" >
+						<input type="text" value="Erklärvideo" maxlength="50" class="form-control" id="titel" name="titel" placeholder="Video Typ" >
 					</div>
 				
 					<div class="form-group col-md-6">
 						<input type="text" maxlength="255" class="form-control" id="original_url" name="original_url" placeholder="Youtube Link" >
 					</div>
 				</div>
+
 				<div class="form-row">
 					<div class="form-group col-md-6">
-						<input type="text" value="Spielanleitung" maxlength="50" class="form-control" id="titel" name="titel" placeholder="video typ" >
+						<input type="text" value="Spielanleitung" maxlength="50" class="form-control" id="manual_titel" name="manual_titel" placeholder="Spielanleitung" >
 					</div>
 				
 					<div class="form-group col-md-6">
-						<input type="text" maxlength="255" class="form-control" id="original_url" name="original_url" placeholder="Anleitung_link" >
+						<input type="text" maxlength="255" class="form-control" id="manual_url" name="manual_url" placeholder="Anleitung URL" >
 					</div>
 				</div>
-					<div class="form-group">
-						<input type="text" maxlength="255" class="form-control" id="bild_link" name="bild_link" placeholder="Bild Link" >
-					</div>
+
+				<div class="form-row">
 					<div class="form-group form-check">
 						<input type="checkbox" class="form-check-input" name="gesperrt" id="gesperrt" value="1">
 						<label class="form-check-label" for="exampleCheck1">Sperren!</label>
 					</div>
-				
-					<button type="submit" class="btn btn-primary">Speichern</button>
+				</div>
+				<button type="submit" class="btn btn-primary">Speichern</button>
 			<?= form_close()?>
 		</div>
     </div>
