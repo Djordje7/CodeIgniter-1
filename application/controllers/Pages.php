@@ -108,7 +108,7 @@ class Pages extends CI_Controller {
 				if ($mimetype == 'application/pdf') {
 					file_put_contents($filename, $manual);
 				} else {
-					echo "Falsches Dateiformat: <b>$mimetype</b>. Nur pdf-Files sind erlaubt.";
+					$this->session->set_flashdata('error', "Falsches Dateiformat: <b>$mimetype</b>. Nur pdf-Files sind erlaubt.");
 				}
 			}
 
@@ -136,10 +136,9 @@ class Pages extends CI_Controller {
 					imagejpeg($bg, $filename, $quality);
 					imagedestroy($bg);
 				} else {
-					echo "Falsches Dateiformat: <b>$mimetype</b>. Nur jpeg- und png-Bilddateien sind erlaubt.";
+					$this->session->set_flashdata('error', "Falsches Dateiformat: <b>$mimetype</b>. Nur jpeg- und png-Bilddateien sind erlaubt.");
 				}
 			}
-
 
 			$this->session->set_flashdata('msg', 'Spiel ' . $this->input->post('ean') . ' wurde hinzugefügt.');
 

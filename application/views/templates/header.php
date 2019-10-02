@@ -51,9 +51,12 @@ if ($flashdata) { ?>
 		<div class="row">
 			<div class="col">
 				<?php
-				if (isset($flashdata['msg'])) {
-					?>
+				if (isset($flashdata['msg'])) { ?>
 					<div class="alert alert-primary" role="alert"><?= $flashdata['msg'] ?></div>
+				<?php }
+
+				if (isset($flashdata['error'])) { ?>
+					<div class="alert alert-danger" role="alert"><?= $flashdata['error'] ?></div>
 				<?php } ?>
 			</div>
 		</div>
