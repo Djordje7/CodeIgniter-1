@@ -108,6 +108,7 @@ class Pages extends CI_Controller {
 				if ($mimetype == 'application/pdf') {
 					file_put_contents($filename, $manual);
 				} else {
+					//TODO: Funktioniert nicht wenn mehrere errors auftreten
 					$this->session->set_flashdata('error', "Falsches Dateiformat: <b>$mimetype</b>. Nur pdf-Files sind erlaubt.");
 				}
 			}
@@ -136,6 +137,7 @@ class Pages extends CI_Controller {
 					imagejpeg($bg, $filename, $quality);
 					imagedestroy($bg);
 				} else {
+					//TODO: Funktioniert nicht wenn mehrere errors auftreten
 					$this->session->set_flashdata('error', "Falsches Dateiformat: <b>$mimetype</b>. Nur jpeg- und png-Bilddateien sind erlaubt.");
 				}
 			}
